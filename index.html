@@ -91,8 +91,9 @@
 			
 			section#intro h1 {
 				font-size: 3em;
-				font-weight: 900;
+				font-weight: 900 !important;
 				text-transform: uppercase;
+				font-family: "Arial Black", Arial, sans-serif;
 			}
 			
 			section#youtube h1 {
@@ -173,7 +174,7 @@
 					<a href="#"><img src="logo-250.jpg" alt="Empire One" class="logo"></a>
 				</div>
 				<nav class="navbar">
-					<ul contenteditable="true">
+					<ul>
 						<li class="active"><a href="#">Home</a></li>
 						<li><a href="#">About</a></li>
 						<li><a href="#">Clients</a></li>
@@ -212,7 +213,7 @@
 					<h1>Youtube</h1>
 					<iframe width="560" height="315" src="http://www.youtube.com/embed/KzJNYYkkhzc?html5=1" frameborder="0" allowfullscreen></iframe>
 				</section>
-				<section id="about-empire-one">
+				<section id="about-empire-one" contenteditable="true">
 					<h1>Article</h1>
 					<article>
 						<p>EmpireOne is an Australian Information Technology (IT) business providing Virtual CTO and Mobile Application & Website Development services to small to medium enterprises (SMEs) and not-for-profit (NFP) organisations.
@@ -247,7 +248,7 @@
 			<footer>
 				<div class="container">
 					<nav class="navbar">
-						<ul contenteditable="true">
+						<ul>
 							<small>
 							<li><a href="#">About</a></li>
 							<li><a href="#">Clients</a></li>
@@ -268,7 +269,16 @@
 		</div>
 		 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 		 <script>
-			
+			$(function() {
+				var about = document.getElementById('about-empire-one');
+				$(about).blur(function() {
+					localStorage.setItem('new-about', about.innerHTML);
+				});
+				
+				if(localStorage.getItem('new-about')) {
+					about.innerHTML = localStorage.getItem('new-about');
+				}
+			});
 		 </script>
 	</body>
 </html>
