@@ -78,9 +78,9 @@
 				border-top: solid 3px green;
 			}
 			
-			section{
+			section {
 				text-align: center;
-				margin: 100px 0 100px 0;
+				padding: 100px 0 100px 0;
 			}
 			
 			section h1 {
@@ -96,8 +96,24 @@
 				font-family: "Arial Black", Arial, sans-serif;
 			}
 			
+			section#audio {
+				background: #99d9ea;
+			}
+			
+			section#youtube {
+				background: #7092be;
+			}
+			
 			section#youtube h1 {
 				color: red;
+			}
+			
+			section#contact {
+				background: #334145;
+			}
+			
+			section#contact h1 {
+				color: white;
 			}
 			
 			aside {
@@ -141,12 +157,27 @@
 				float: right;
 			}
 			
+			button {
+				width: 560px;
+				font-weight: 900;
+				text-transform: uppercase;
+				font-family: "Arial Black", Arial, sans-serif;
+				font-size: 1.5em;
+				height: 2em;
+			}
+			
+			footer {
+				background: #495d63;
+				height: 70px;
+			}
+			
 			footer nav ul li {
 				line-height: 60px;
 			}
 			
 			footer nav ul li a {
 				font-weight: normal;
+				color: white;
 			}
 			
 			footer nav ul li a:hover {
@@ -187,48 +218,47 @@
 		</header>
 		
 		<div class="main-container">
-			<div class="container">
-				<section id="intro" contenteditable="true">
-					<hgroup>
-						<h1>hello, we're empire one
-						<h2>We provide Virtual CTO and Mobile Application & Website Development services
-					</hgroup>
-					<aside>Technologies Made Simple !</aside>
-				</section>
-				<section id="audio">
-					<h1>Audio</h1>
-					<audio controls>  
-						<source src="08 Now You See Me (Robert DeLong Remix).mp3" type="audio/mpeg" />
-						<source src="08_Now_You_See_Me_Robert_DeLong_Remix_.ogg" type="audio/ogg" />
-					</audio>
-				</section>
-				<section id="video">
-					<h1>Video</h1>
-					<video width="560" height="315" controls preload>
-						<source src="Now_You_See_Me_Official_Trailer.ogv" type="video/ogg; codecs='vorbis, theora'" />
-						<source src="Now You See Me Official Trailer.mp4" type="video/mp4; 'codecs='avc1.42E01E, mp4a.40.2'"/>
-					</video>
-				</section>
-				<section id="youtube">
-					<h1>Youtube</h1>
-					<iframe width="560" height="315" src="http://www.youtube.com/embed/KzJNYYkkhzc?html5=1" frameborder="0" allowfullscreen></iframe>
-				</section>
-				<section id="about-empire-one" contenteditable="true">
-					<h1>Article</h1>
-					<article>
-						<p>EmpireOne is an Australian Information Technology (IT) business providing Virtual CTO and Mobile Application & Website Development services to small to medium enterprises (SMEs) and not-for-profit (NFP) organisations.
-						<p>Experienced developers, modern technologies, and best practice methodologies - that's what you can expect from us. After all, web technologies is what we do best.
-					</article>
-				</section>
-				<section id="contact">
-					<h1>Contact us</h1>
-					<form action="" method="post">
-						<input name="email" type="email" placeholder="youremail@website.com" class="email-input" required /><br>
-						<input name="message" type="text" placeholder="Your message for us here" class="message-input" /><br>
-						<button type="submit">Send message</button>
-					</form>
-				</section>
-			</div>
+			<section id="intro" contenteditable="true">
+				<hgroup>
+					<h1>hello, we're empire one
+					<h2>We provide Virtual CTO and Mobile Application & Website Development services
+				</hgroup>
+				<aside>Technologies Made Simple !</aside>
+			</section>
+			<section id="audio">
+				<h1>Audio</h1>
+				<audio controls>  
+					<source src="08 Now You See Me (Robert DeLong Remix).mp3" type="audio/mpeg" />
+					<source src="08_Now_You_See_Me_Robert_DeLong_Remix_.ogg" type="audio/ogg" />
+				</audio>
+			</section>
+			<section id="video">
+				<h1>Video</h1>
+				<video width="560" height="315" controls preload>
+					<source src="Now_You_See_Me_Official_Trailer.ogv" type="video/ogg; codecs='vorbis, theora'" />
+					<source src="Now You See Me Official Trailer.mp4" type="video/mp4; 'codecs='avc1.42E01E, mp4a.40.2'"/>
+				</video>
+			</section>
+			<section id="youtube">
+				<h1>Youtube</h1>
+				<iframe width="560" height="315" src="http://www.youtube.com/embed/KzJNYYkkhzc?html5=1" frameborder="0" allowfullscreen></iframe>
+			</section>
+			<section id="about-empire-one" contenteditable="true">
+				<h1>Article</h1>
+				<article class="container">
+					<p>EmpireOne is an Australian Information Technology (IT) business providing Virtual CTO and Mobile Application & Website Development services to small to medium enterprises (SMEs) and not-for-profit (NFP) organisations.
+					<p>Experienced developers, modern technologies, and best practice methodologies - that's what you can expect from us. After all, web technologies is what we do best.
+				</article>
+			</section>
+			<section id="contact">
+				<h1>Contact us</h1>
+				<form action="" method="post">
+					<input name="email" type="email" placeholder="youremail@website.com" class="email-input" required /><br>
+					<input name="message" type="text" placeholder="Your message for us here" class="message-input" /><br>
+					<button type="submit">Send message</button>
+				</form>
+			</section>
+		</div>
 			<!--
 			<div class="portfolio-container">
 				<article id="portfolio-1">
@@ -245,28 +275,27 @@
 			</div>
 			-->
 	
-			<footer>
-				<div class="container">
-					<nav class="navbar">
-						<ul>
-							<small>
-							<li><a href="#">About</a></li>
-							<li><a href="#">Clients</a></li>
-							<li><a href="#">Solutions</a></li>
-							<li><a href="#">Blog</a></li>
-							<li><a href="#">Contact</a></li>
-							</small>
-						</ul>
-					</nav>
-					<div class="social">
-						<a href="#"><img src="facebook.png" alt="facebook"></a>
-						<a href="#"><img src="twitter.png" alt="twitter"></a>
-						<a href="#"><img src="linkedin.png" alt="linkedin"></a>
-						<a href="#"><img src="rss.png" alt="rss"></a>
-					</div>
+		<footer>
+			<div class="container">
+				<nav class="navbar">
+					<ul>
+						<small>
+						<li><a href="#">About</a></li>
+						<li><a href="#">Clients</a></li>
+						<li><a href="#">Solutions</a></li>
+						<li><a href="#">Blog</a></li>
+						<li><a href="#">Contact</a></li>
+						</small>
+					</ul>
+				</nav>
+				<div class="social">
+					<a href="#"><img src="facebook.png" alt="facebook"></a>
+					<a href="#"><img src="twitter.png" alt="twitter"></a>
+					<a href="#"><img src="linkedin.png" alt="linkedin"></a>
+					<a href="#"><img src="rss.png" alt="rss"></a>
 				</div>
-			</footer>
-		</div>
+			</div>
+		</footer>
 		 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 		 <script>
 			$(function() {
