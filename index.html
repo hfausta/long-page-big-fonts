@@ -106,6 +106,7 @@
 			
 			section#contact {
 				background: #334145;
+				color: white;
 			}
 			
 			section#contact h1 {
@@ -162,8 +163,16 @@
 				height: 2em;
 			}
 			
-			footer {
+			footer, section#timer {
 				background: #495d63;
+				color: white;
+			}
+			
+			section#timer h1 {
+				color: white;
+			}
+			
+			footer {
 				height: 70px;
 			}
 			
@@ -192,6 +201,37 @@
 			}
 			
 		</style>
+		<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+		<script>
+			$(function() {
+				var about = document.getElementById('about-empire-one');
+				$(about).blur(function() {
+					localStorage.setItem('new-about', about.innerHTML);
+				});
+				
+				if(localStorage.getItem('new-about')) {
+					about.innerHTML = localStorage.getItem('new-about');
+				}
+			});
+			
+			function getTime() {
+				$.ajax({
+					url: "http://localhost:8080/Counter/index.jsp",
+					type: "GET",
+					dataType: "html",
+					success: function(result) {
+						html = jQuery('<var>').html(result);
+						$('#time').html(html.find("var#date"));
+						//document.getElementById('time').innerHTML = html.innerHTML;
+					}
+				}).done(function(data) {
+					console.log(data);
+				});
+			};
+			
+			window.setInterval(function() {
+				getTime()}, 1000);
+		 </script>
 	</head>
 
 	<body>
@@ -246,6 +286,10 @@
 					<p>Experienced developers, modern technologies, and best practice methodologies - that's what you can expect from us. After all, web technologies is what we do best.
 				</article>
 			</section>
+			<section id="timer">
+				<h1>Current date and time</h1>
+				<h1><var id="time"></var></h1>
+			</section>
 			<section id="contact">
 				<h1>Contact us</h1>
 				<form action="" method="post">
@@ -292,18 +336,5 @@
 				</div>
 			</div>
 		</footer>
-		 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-		 <script>
-			$(function() {
-				var about = document.getElementById('about-empire-one');
-				$(about).blur(function() {
-					localStorage.setItem('new-about', about.innerHTML);
-				});
-				
-				if(localStorage.getItem('new-about')) {
-					about.innerHTML = localStorage.getItem('new-about');
-				}
-			});
-		 </script>
 	</body>
 </html>
