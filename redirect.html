@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Redirect to my HTML 5 page</title>
+		<script>
+			function redirectTimer() {
+				var sec = document.getElementById('sec').innerHTML;
+				var countDown = sec - 1;
+				document.getElementById('sec').innerHTML = countDown;
+			};
+			
+			window.setInterval(function() {
+				redirectTimer()}, 1000);
+			
+			window.setInterval(function() {
+				window.location.replace("index.html")}, 5000);
+			
+		</script>
+	</head>
+	<body>
+		<h1><strong><center>You will be redirected in <var id="sec">5</var> seconds</center></strong></h1>
+	</body>
+</html>
