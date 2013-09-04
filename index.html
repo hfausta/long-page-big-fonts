@@ -3,6 +3,7 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
 		<title>My HTML 5 Site</title>
 		<style>
 			body {
@@ -61,6 +62,7 @@
 			nav ul li a:hover {
 				color: #99ad58;
 				border-top: solid 3px #99ad58;
+				text-decoration: none;
 			}
 			
 			nav ul li a:focus {
@@ -81,28 +83,18 @@
 			section {
 				text-align: center;
 				padding: 100px 0 100px 0;
+				margin: 0 auto 0 auto;
+			}
+			
+			section p {
+				font-size: 1.2em;
 			}
 			
 			section h1 {
-				font-size: 2em;
-				font-weight: bold;
-				text-transform: uppercase;
-			}
-			
-			section#intro h1 {
 				font-size: 3em;
 				font-weight: 900 !important;
 				text-transform: uppercase;
 				font-family: "Arial Black", Arial, sans-serif;
-			}
-			
-			section#contact {
-				background: #334145;
-				color: white;
-			}
-			
-			section#contact h1 {
-				color: white;
 			}
 			
 			aside {
@@ -116,13 +108,59 @@
 				letter-spacing: 0.2em;
 			}
 			
-			input.email-input {
-				width: 300px;
+			footer, button, section#virtual-cto {
+				background: #495d63;
+				color: white;
+			}
+			
+			section#virtual-cto h1 {
+				color: white;
+			}
+			
+			section#mobile-web ul {
+				list-style-type: none;
+				font-size: 1.7em;
+				font-weight: 900;
+			}
+			
+			section#contact {
+				background: #334145;
+				color: white;
+			}
+			
+			section#contact h1 {
+				color: white;
+			}
+			
+			input.email-input, input.name-input, input.message-input {
+				width: 500px;
+				margin: 0 0 25px 0;
+			}
+			
+			input.email-input, input.name-input {
+				height: 40px;
 			}
 			
 			input.message-input {
-				width: 560px;
-				height: 315px;
+				height: 300px;
+			}
+			
+			.contact-form {
+				text-align: left;
+				margin: 0 auto 0 auto;
+				max-width: 500px;
+			}
+			
+			.contact-form ul {
+				list-style-type: none;
+				padding: 0;
+				margin: 0;
+			}
+			
+			label {
+				font-weight: 900;
+				font-size: 1.5em;
+				text-transform: uppercase;
 			}
 			
 			.portfolio-container {
@@ -131,17 +169,14 @@
 			}
 			
 			button {
-				width: 560px;
+				width: 510px;
+				margin: 25px 0 25px 0;
+				border: none;
 				font-weight: 900;
 				text-transform: uppercase;
 				font-family: "Arial Black", Arial, sans-serif;
 				font-size: 1.5em;
 				height: 2em;
-			}
-			
-			footer {
-				background: #495d63;
-				color: white;
 			}
 			
 			footer {
@@ -170,6 +205,11 @@
 				font-weight: normal;
 				font-style: normal;
 				color: #334145;
+			}
+			
+			a.green-link {
+				text-decoration: none;
+				color: #99ad58;
 			}
 			
 		</style>
@@ -209,36 +249,51 @@
 		
 		<div class="main-container">
 			<section id="intro" contenteditable="true">
-				<hgroup>
-					<h1>hello, we're empire one
-					<h2>We provide Virtual CTO and Mobile Application & Website Development services
-				</hgroup>
-				<aside>Technologies Made Simple !</aside>
+				<div class="container">
+					<hgroup>
+						<h1>hello, we're empire one
+						<h2>We provide Virtual CTO and Mobile Application & Website Development services
+					</hgroup>
+					<aside>Technologies Made Simple !</aside>
+				</div>
+			</section>
+			<section id="virtual-cto">
+				<div class="container">
+					<h1>What can an Empire One Virtual CTO provide?</h1>
+					<p>A Chief Technology Officer (CTO) is responsible for overseeing the current technology assets of a business, as well as the technology direction and vision of an organisation.
+					<p>As a smaller organisation you are unlikely to need (or be able to afford) a full time CTO. That&#39;s where we come in, offering our services when you need them, how you need them &#45; virtually.
+					<p>Simply put, EmpireOne can deliver what you need. Anything technology related we can help manage, design, implement, and build. 
+				</div>
+			</section>
+			<section id="mobile-web">
+				<h1>What can we build for you?</h1>
+				<div class="container">
+					<p>We love technology, we love developing complex systems and love staying on top of the latest &#39;best practice&#39; standards in our field. So expect to receive a piece of work which reflects modern development principles and is exceptional in quality.
+					<p>We develop mobile applications as well website development</p>
+					<ul>
+						<li>iOS and Android apps</li>
+						<li>Mobile websites</li>
+						<li>Tablet websites</li>
+						<li>Responsive websites</li>
+						<li>&#39;Complex&#39; websites, e.g ecommerce sites</li>
+					</ul>
+				</div>
 			</section>
 			<section id="contact">
 				<h1>Contact us</h1>
 				<form action="" method="post">
-					<input name="email" type="email" placeholder="youremail@website.com" class="email-input" required /><br>
-					<input name="message" type="text" placeholder="Your message for us here" class="message-input" /><br>
-					<button type="submit">Send message</button>
+					<div class="contact-form">
+						<label>Name</label><br>
+						<input name="name" type="text" placeholder="Your name here" class="name-input" required /><br>
+						<label>Email</label><br>
+						<input name="email" type="email" placeholder="Your email here" class="email-input" required /><br>
+						<label>Message us</label><br>
+						<input name="message" type="text" placeholder="Your message for us here" class="message-input" /><br>
+						<button type="submit">Send message</button>
+					</div>
 				</form>
 			</section>
 		</div>
-			<!--
-			<div class="portfolio-container">
-				<article id="portfolio-1">
-					<img src="portfolio-1.png">
-				</article>
-				<article id="portfolio-2">
-					<img src="portfolio-2.png">
-				</article>
-				<article id="portfolio-3">
-					<img src="portfolio-3.png">
-				</article>
-				<button id="portfolio-prev">Prev</button>
-				<button id="portfolio-next">Next</button>
-			</div>
-			-->
 	
 		<footer>
 			<div class="container">
