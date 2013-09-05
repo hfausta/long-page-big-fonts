@@ -8,7 +8,7 @@
 		<style>
 			body {
 				background: snow;
-				font-size: 1em;
+				font-size: 16px;
 				color: #334145;
 				padding: 0;
 				margin: 0;
@@ -22,7 +22,7 @@
 			}
 			
 			.container {
-				width: 940px;
+				max-width: 940px;
 				margin: 0 auto 0 auto;
 			}
 			
@@ -139,6 +139,7 @@
 			}
 			
 			section p {
+				margin: 0;
 				font-size: 1.2em;
 			}
 			
@@ -169,10 +170,53 @@
 				color: white;
 			}
 			
+			section#mobile-web {
+				background: #edeceb;
+			}
+			
 			section#mobile-web ul {
 				list-style-type: none;
 				font-size: 1.7em;
 				font-weight: 900;
+			}
+			
+			#carousel .contents {
+				width: 940px;
+				height: 500px;
+				clear: left;
+				overflow: hidden;
+			}
+			
+			#carousel ul {
+				width: 300%;
+				list-style-type: none;
+				margin: 0;
+				padding: 0;
+			}
+			
+			#carousel ul li {
+				position: relative;
+				float: left;
+				text-align: center;
+				display: inline;
+			}
+			
+			#carousel ul li p, #carousel ul li h2 {
+				max-width: 940px;
+				text-align: left;
+			}
+			
+			#carousel ul li h2 {
+				font-size: 1.5em;
+				font-weight: 700;
+			}
+			
+			#carousel-nav a {
+				background-image: url('circle.png');
+			}
+			
+			#carousel-nav a.active {
+				background-image: url('circle-active.png');
 			}
 			
 			section#contact {
@@ -215,11 +259,6 @@
 				text-transform: uppercase;
 			}
 			
-			.portfolio-container {
-				width: 100%;
-				height: 100%;
-			}
-			
 			button {
 				width: 510px;
 				margin: 25px 0 25px 0;
@@ -233,6 +272,10 @@
 			
 			footer {
 				height: 70px;
+			}
+			
+			footer nav ul {
+				padding: 0;
 			}
 			
 			footer nav ul li {
@@ -253,10 +296,6 @@
 				line-height: 80px;
 			}
 			
-			p {
-				margin-top: 0;
-			}
-			
 			h1, h2 {
 				font-weight: normal;
 				font-style: normal;
@@ -271,17 +310,19 @@
 
 			
 		</style>
-		<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+		<script src="jquery-1.10.1.js"></script>
 		<script>
-			$(function() {
-				var about = document.getElementById('about-empire-one');
-				$(about).blur(function() {
-					localStorage.setItem('new-about', about.innerHTML);
+			$(document).ready(function(){
+				$("nav.carousel-nav a").click(function(event) {
+					var clicked = $(this).index('nav.carousel-nav a');
+					$('#carousel ul').animate({"margin-left": "-"+clicked*940});
+					$('nav.carousel-nav a').removeClass('active');
+					$(this).addClass('active');
+					return false;
 				});
-				
-				if(localStorage.getItem('new-about')) {
-					about.innerHTML = localStorage.getItem('new-about');
-				}
+				var shift = 0;
+				window.setInterval(function() { shift++; if(shift == 3) { shift = 0; } }, 10000); 
+				window.setInterval(function() { $('#carousel ul').animate({"margin-left": "-"+shift*940});}, 10000);
 			});
 		 </script>
 	</head>
@@ -290,7 +331,7 @@
 		<header class="navbar-container">
 			<div class="container">
 				<div class="company-logo">
-					<a href="#"><img src="logo-250.jpg" alt="Empire One" class="logo img-responsive"></a>
+					<a href="#"><img src="logo-250.jpg" alt="Empire One" class="logo"></a>
 				</div>
 				<nav class="navbar">
 					<ul>
@@ -306,7 +347,7 @@
 		</header>
 		
 		<div class="main-container">
-			<section id="intro" contenteditable="true">
+			<section id="intro">
 				<div class="container">
 					<hgroup>
 						<h1>hello, we're empire one
@@ -317,33 +358,69 @@
 			</section>
 			<section id="virtual-cto">
 				<div class="container">
-				<h1>What can an Empire One Virtual CTO provide?</h1>
-				<div class="grid">
-					<div class="col-1-3">
-						<img src="virtual-cto.png" alt="Virtual CTO" class="img-responsive"  />
-					</div>
-					<div class="col-2-3">
-						<p style="text-align: left">A Chief Technology Officer (CTO) is responsible for overseeing the current technology assets of a business, as well as the technology direction and vision of an organisation.
-						As a smaller organisation you are unlikely to need (or be able to afford) a full time CTO. That&#39;s where we come in, offering our services when you need them, how you need them &#45; virtually.
-						Simply put, EmpireOne can deliver what you need. Anything technology related we can help manage, design, implement, and build. 
-					</div>
-				
-					
-				</div>	
+					<h1>What can an Empire One Virtual CTO provide?</h1>
+					<div class="grid">
+						<div class="col-1-3">
+							<img src="virtual-cto.png" alt="Virtual CTO" class="img-responsive"  />
+						</div>
+						<div class="col-2-3">
+							<p style="text-align: left">A Chief Technology Officer (CTO) is responsible for overseeing the current technology assets of a business, as well as the technology direction and vision of an organisation.
+							As a smaller organisation you are unlikely to need (or be able to afford) a full time CTO. That&#39;s where we come in, offering our services when you need them, how you need them &#45; virtually.
+							Simply put, EmpireOne can deliver what you need. Anything technology related we can help manage, design, implement, and build. 
+						</div>
+					</div>	
 				</div>
 			</section>
 			<section id="mobile-web">
-				<h1>What can we build for you?</h1>
 				<div class="container">
-					<p>We love technology, we love developing complex systems and love staying on top of the latest &#39;best practice&#39; standards in our field. So expect to receive a piece of work which reflects modern development principles and is exceptional in quality.
-					<p>We develop mobile applications as well website development</p>
-					<ul>
-						<li>iOS and Android apps</li>
-						<li>Mobile websites</li>
-						<li>Tablet websites</li>
-						<li>Responsive websites</li>
-						<li>&#39;Complex&#39; websites, e.g ecommerce sites</li>
-					</ul>
+					<h1>What can we build for you?</h1>
+					<div class="grid">
+						<div class="col-2-3">
+							<p>We love technology, we love developing complex systems and love staying on top of the latest &#39;best practice&#39; standards in our field. So expect to receive a piece of work which reflects modern development principles and is exceptional in quality.
+							<p>We develop mobile applications as well website development</p>
+							<ul>
+								<li>iOS and Android apps</li>
+								<li>Mobile websites</li>
+								<li>Tablet websites</li>
+								<li>Responsive websites</li>
+								<li>&#39;Complex&#39; websites, e.g ecommerce sites</li>
+							</ul>
+						</div>
+						<div class="col-1-3">
+							<img src="mobile.png" alt="Mobile and Web Applications" class="img-responsive"  />
+						</div>
+					</div>
+				</div>
+			</section>
+			<section id="clients">
+				<div class="container">
+					<h1>Some of our work</h1>
+					<div id="carousel">
+						<div class="contents">
+							<ul>
+								<li>
+									<img src="travel-giver.png" alt="Travel Giver" />
+									<h2>Travel Giver Pty Ltd</h2>
+									<p>EmpireOne successfully built a high quality web application for TravelGiver, a travel booking service, leveraging modern technologies and agile methodologies. The project was delivered on time, meeting tight budget and time constraints whilst emphasising the value-added features of the recently launched Australian start-up
+								</li>
+								<li>
+									<img src="groove-international.png" alt="Groove International" />
+									<h2>Grove International</h2>
+									<p>Grove International, experiencing problems with their cumbersome and slow access based trading system turned to EmpireOne to help them make improvements. Utilising open source software EmpireOne developed a new platform which was more business focused, stable and automated many steps of their business processes
+								</li>
+								<li>
+									<img src="scottish-pacific.png" alt="Scottish Pacific" />
+									<h2>Scottish Pacific</h2>
+									<p>Utilising EmpireOne's expertise, Scottish Pacific Debtor Finance were able to re-design their development process which had become cumbersome and problematic, often causing 'breaks' to their client facing platform. EmpireOne designed and documented the new process to ensure it met business and client expectations
+								</li>
+							</ul>
+						</div>
+					</div>
+					<nav class="carousel-nav">
+						<a href="#" class="active">1</a>
+						<a href="#">2</a>
+						<a href="#">3</a>
+					</nav>
 				</div>
 			</section>
 			<section id="contact">
@@ -355,7 +432,7 @@
 						<label>Email</label><br>
 						<input name="email" type="email" placeholder="Your email here" class="email-input" required /><br>
 						<label>Message us</label><br>
-						<input name="message" type="text" placeholder="Your message for us here" class="message-input" /><br>
+						<input name="message" type="text" placeholder="Your message for us here" class="message-input" required /><br>
 						<button type="submit">Send message</button>
 					</div>
 				</form>
